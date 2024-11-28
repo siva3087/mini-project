@@ -1,2 +1,53 @@
 <p>createemployee works!</p>
+<form [formGroup]="employeeForm">
+    <label for="">Name:</label>
+    <input type="text" formControlName="name">
+    <br>
+    <br>
+    <label for="">Company:</label>
+    <input type="text" formControlName="company">
+    <br>
+    <br>
+    <label for="">Role:</label>
+    <input type="text" formControlName="role">
+    <br>
+    <br>
+    <label for="">Package:</label>
+    <input type="number" formControlName="package">
+    <br>
+    <br>
+    <label for="">Email:</label>
+    <input type="email" formControlName="email">
+    <br>
+    <br>
+    <label for="">Dob:</label>
+    <input type="date" formControlName="dob">
+    <br>
+    <br>
+    <div formGroupName="address">
+    <label for="">Address:</label>
+    <input type="text" formControlName="address">
+    <br>
+    <br>
+    <label for="">Addressline:</label>
+    <input type="text" formControlName="addressLine">
+    <br>
+    <br>
+    <label for="">City:</label>
+    <input type="text" formControlName="city">
+    <br>
+    <label for="">State:</label>
+    <input type="text" formControlName="state">
+    <br>
+    <label for="">Pincode:</label>
+    <input type="number" formControlName="pincode">
+    </div>
+    <br>
+    <button (click)="submit()" class="btn btn-warning">ADD</button>
+    
+
+
+</form>
+
+
 
