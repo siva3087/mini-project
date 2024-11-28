@@ -1,1 +1,33 @@
 <p>allemployee works!</p>
+<table border="1" class="table table-dark table-striped table-bordered">
+    <thead>
+        <th>S.No</th>
+        <th>Name</th>
+        <th>Company</th>
+        <th>Role</th>
+        <th>Package</th>
+        <th>Email</th>
+        <th>DOB</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Pincode</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employees , let i = index">
+            <td>{{i+1}}</td>
+            <td>{{employee.name}}</td>
+            <td>{{employee.company}}</td>
+            <td>{{employee.role}}</td>
+            <td>{{employee.packae}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.dob}}</td>
+            <td>{{employee.address.addressline}}</td>
+            <td>{{employee.address.city}}</td>
+            <td>{{employee.address.state}}</td>
+            <td>{{employee.address.pincode}}</td>
+            <!-- <button (click)="delete(vehicle.id)" class="btn btn-danger">Delete</button> -->
+
+        </tr>
+    </tbody>
+</table>
