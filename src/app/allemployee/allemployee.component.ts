@@ -12,6 +12,8 @@ export class AllemployeeComponent {
   term:string ="";
   column:string ="";
   order:string ="";
+  limit:number =0;
+  page:number =0;
 
   constructor(private _employeeService:EmployeeService){
     _employeeService.getemployees().subscribe(
@@ -58,5 +60,18 @@ export class AllemployeeComponent {
       alert("internal Server Error")
     }
   )
+  }
+  pagination(){
+    console.log(this.employees);
+    this._employeeService.getpagedemployees(this.page,this.limit).subscribe(
+      (data:any)=>{
+        alert("pagenation Succesfully!!!");
+        this.employees =data;
+      },
+      (err:any)=>{
+        alert("internal server Error")
+      }
+    )
+
   }
 }

@@ -3,12 +3,12 @@
 <input  placeholder="search" [(ngModel)]="term"  (keyup)="filter()">
 <!-- Column Filtered -->
 <select [(ngModel)]="column">
-    <option >Name</option>
-    <option >Company</option>
-    <option >Role</option>
-    <option >State</option>
-    <option >City</option>
-    <option >Pincode</option>
+    <option >name</option>
+    <option >company</option>
+    <option >role</option>
+    <option >state</option>
+    <option >city</option>
+    <option >pincode</option>
  </select>
  <!-- ordered -->
   <select [(ngModel)]="order" >
@@ -17,9 +17,20 @@
   </select>
   <button (click)="sort()" class="btn btn-primary">Sort</button>
   <!-- pagination -->
+  <select [(ngModel)]="limit">
+    <option >10</option>
+    <option >20</option>
+    <option >30</option>
+ </select>
+ <select [(ngModel)]="page">
+    <option >1</option>
+    <option >2</option>
+    <option >3</option>
+ </select>
+ <button (click)="pagination()">Pagination</button>
 
 <table border="1" class="table table-dark table-striped table-bordered">
-    <thead>
+    <thead class="text-center thcolor">
         <th>S.No</th>
         <th>Name</th>
         <th>Company</th>
@@ -31,6 +42,7 @@
         <th>City</th>
         <th>State</th>
         <th>Pincode</th>
+        <th>ID</th>
         <th>Actions</th>
         
     </thead>
@@ -40,13 +52,14 @@
             <td>{{employee.name}}</td>
             <td>{{employee.company}}</td>
             <td>{{employee.role}}</td>
-            <td>{{employee.packae}}</td>
+            <td>{{employee.package}}</td>
             <td>{{employee.email}}</td>
             <td>{{employee.dob}}</td>
-            <td>{{employee.address.addressLine}}</td>
-            <td>{{employee.address.city}}</td>
-            <td>{{employee.address.state}}</td>
-            <td>{{employee.address.pincode}}</td>
+            <td>{{employee.address?.addressLine}}</td>
+            <td>{{employee.address?.city}}</td>
+            <td>{{employee.address?.state}}</td>
+            <td>{{employee.address?.pincode}}</td>
+            <td>{{employee.id}}</td>
             <td>
             <button (click)="delete(employee.id)" class="btn btn-danger">Delete</button>
             </td>
