@@ -19,10 +19,13 @@ export class EmployeeService {
 
     }
     getSortedemployees(column:string,order:string):Observable<any>{
-      return this._httpClient.get("https://6572df5d192318b7db412dfe.mockapi.io/employees?soryBy="+column+"&order="+order)
+      return this._httpClient.get("https://6572df5d192318b7db412dfe.mockapi.io/employees?sortBy="+column+"&order="+order)
     }
     deleteemployees(id:string):Observable<any>{
-      return this._httpClient.delete("https://6572df5d192318b7db412dfe.mockapi.io/employees"+id);
+      return this._httpClient.delete("https://6572df5d192318b7db412dfe.mockapi.io/employees/"+id);
+    }
+    getpagedemployees(page:number,limit:number):Observable<any>{
+      return this._httpClient.get("https://6572df5d192318b7db412dfe.mockapi.io/employees?limit="+limit+"&page="+page)
     }
     
 }
