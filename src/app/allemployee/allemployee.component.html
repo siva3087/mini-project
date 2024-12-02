@@ -1,4 +1,23 @@
 <p>allemployee works!</p>
+<!-- Search Bar -->
+<input  placeholder="search" [(ngModel)]="term"  (keyup)="filter()">
+<!-- Column Filtered -->
+<select [(ngModel)]="column">
+    <option >Name</option>
+    <option >Company</option>
+    <option >Role</option>
+    <option >State</option>
+    <option >City</option>
+    <option >Pincode</option>
+ </select>
+ <!-- ordered -->
+  <select [(ngModel)]="order" >
+    <option value="asc">Ascending</option>
+    <option value="desc">Descending</option>
+  </select>
+  <button (click)="sort()" class="btn btn-primary">Sort</button>
+  <!-- pagination -->
+
 <table border="1" class="table table-dark table-striped table-bordered">
     <thead>
         <th>S.No</th>
@@ -12,6 +31,8 @@
         <th>City</th>
         <th>State</th>
         <th>Pincode</th>
+        <th>Actions</th>
+        
     </thead>
     <tbody>
         <tr *ngFor="let employee of employees , let i = index">
@@ -22,11 +43,13 @@
             <td>{{employee.packae}}</td>
             <td>{{employee.email}}</td>
             <td>{{employee.dob}}</td>
-            <td>{{employee.address.addressline}}</td>
+            <td>{{employee.address.addressLine}}</td>
             <td>{{employee.address.city}}</td>
             <td>{{employee.address.state}}</td>
             <td>{{employee.address.pincode}}</td>
-            <!-- <button (click)="delete(vehicle.id)" class="btn btn-danger">Delete</button> -->
+            <td>
+            <button (click)="delete(employee.id)" class="btn btn-danger">Delete</button>
+            </td>
 
         </tr>
     </tbody>

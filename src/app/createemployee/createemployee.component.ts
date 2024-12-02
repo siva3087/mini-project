@@ -17,14 +17,15 @@ export class CreateemployeeComponent {
     package: new FormControl(),
     email: new FormControl(),
     dob: new FormControl(),
-    address: new FormGroup({
+    address: new FormControl({
     addressLine: new FormControl(),
     city: new FormControl(),
     state: new FormControl(),
     pincode: new FormControl(),
     })
+  
  })
- submit(){
+ add(){
   console.log(this.employeeForm);
   this._employeeService.createemployee(this.employeeForm.value).subscribe(
     (data:any) =>{
